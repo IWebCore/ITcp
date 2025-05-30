@@ -1,0 +1,10 @@
+{
+    
+    "name":"ITcp",
+    "group":"IWebCore",
+    "version":"1.0.0",
+    "author": "yuekeyuan",
+    
+    "summary":"wrapped asio tcp server",
+    "dependencies": {}
+}
