@@ -42,8 +42,8 @@ public:
 
 public:
     bool m_isSsl;
-    ISocket * m_socket;
-    ISSocket* m_ssocket;
+    ISSocket* m_ssocket{};
+    ISocket * m_socket{};
 };
 
 template<typename Condition, typename Token>
