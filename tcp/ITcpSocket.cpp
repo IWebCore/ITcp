@@ -4,12 +4,12 @@
 $PackageWebCoreBegin
 
 ITcpSocket::ITcpSocket(ITcpSocket::ISocket && socket)
-    : m_socket(new ISocket(std::move(socket))), m_isSsl(false)
+    :m_isSsl(false), m_ssocket(nullptr), m_socket(new ISocket(std::move(socket)))
 {
 }
 
 ITcpSocket::ITcpSocket(ITcpSocket::ISSocket* socket)
-    : m_ssocket(socket), m_isSsl(true)
+    : m_isSsl(true), m_ssocket(socket), m_socket(nullptr)
 {
 }
 
