@@ -133,14 +133,11 @@ bool ITcpServer::filterSocket(asio::ip::tcp::socket &socket)
         }
     }
 
-    $Int m_timeout{"/http/readTimeOut", 10*1000};
+    $Int m_timeout{"/http/readTimeOut", 30*1000};   // ms
 
 #if defined(_WIN32) || defined(WIN32)
-    // Windows: use built-in receive_timeout
-    asio::socket_base::receive_timeout option(*m_timeout);
-    socket_.set_option(option);
+    socket.set_option(asio::detail::socket_option::integer<SOL_SOCKET, SO_RCVTIMEO>{ *m_timeout });
 #else
-    // Linux/macOS: use setsockopt with SO_RCVTIMEO
     struct timeval tv;
     tv.tv_sec = *m_timeout / 1000;          // Seconds
     tv.tv_usec = ((*m_timeout) % 1000) * 1000; // Microseconds
