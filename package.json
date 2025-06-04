@@ -6,5 +6,6 @@
     "author": "yuekeyuan",
     
     "summary":"wrapped asio tcp server",
-    "dependencies": {}
+    "dependencies": {},
+    "autoScan" : false
 }
