@@ -1,11 +1,13 @@
 {
     
     "name":"ITcp",
-    "group":"IWebCore",
     "version":"1.0.0",
-    "author": "yuekeyuan",
-    
     "summary":"wrapped asio tcp server",
-    "dependencies": {},
+    "author": "yuekeyuan",
+    "license":"AGPL-3.0-only",
+    "dependencies": {
+        "asio": "*",
+        "ICore": "*"
+    },
     "autoScan" : false
 }

@@ -1,6 +1,6 @@
-cacheToIncludes(${CMAKE_CURRENT_LIST_DIR})
+loadToIncludes(${CMAKE_CURRENT_LIST_DIR})
 
-cacheToSources(
+loadToSources(
     ${CMAKE_CURRENT_LIST_DIR}/tcp/ITcpConnection.cpp 
     ${CMAKE_CURRENT_LIST_DIR}/tcp/ITcpConnectionData.cpp 
     ${CMAKE_CURRENT_LIST_DIR}/tcp/ITcpManage.cpp 
