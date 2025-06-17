@@ -24,7 +24,6 @@ public:
     IStringView readPartition();
     std::size_t find(IStringView view);
     std::size_t getUnparsedLength() const;
-    bool isDataFull() const;
 
 public:
     char* m_data;

@@ -68,9 +68,4 @@ std::size_t ITcpConnectionData::getUnparsedLength() const
     return m_readSize-m_parsedSize;
 }
 
-bool ITcpConnectionData::isDataFull() const
-{
-    return m_readSize == IHttp::HTTP_BASE_MESSAGE_SIZE;
-}
-
 $PackageWebCoreEnd
