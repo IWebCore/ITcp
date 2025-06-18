@@ -21,7 +21,7 @@ public:
 
 public:
     void registResolverFactory(ITcpResolverFactoryWare*);
-    int getResolverFactoryId(IStringView);
+    int getResolverFactoryId(const IString&);
     ITcpResolver* createResolver(ITcpConnection&, int id);
     void destoryResolver(ITcpResolver*);
 

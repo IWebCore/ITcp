@@ -67,8 +67,8 @@ void ITcpServer::loadResolverFactory()
         return;
     }
     $StdString factory{"/tcp/resolverFactory"};
-    IString data(*factory);
-    m_resolverFactoryId = ITcpManage::instance().getResolverFactoryId(data.m_view);
+    IString data(&(*factory));
+    m_resolverFactoryId = ITcpManage::instance().getResolverFactoryId(data);
     if(m_resolverFactoryId == -1){
         ITcpAbort::abortResolverFactoryNotRegistered("lack tcp resolver factory", $ISourceLocation);
     }

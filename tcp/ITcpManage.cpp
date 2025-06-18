@@ -25,10 +25,10 @@ void ITcpManage::registResolverFactory(ITcpResolverFactoryWare * ware)
     m_resolverFactories.push_back(ware);
 }
 
-int ITcpManage::getResolverFactoryId(IStringView data)
+int ITcpManage::getResolverFactoryId(const IString& data)
 {
     for(std::size_t i=0; i<m_resolverFactories.size(); i++){
-        if(m_resolverFactories[i]->getName().m_view == data){
+        if(m_resolverFactories[i]->getName() == data){
             return static_cast<int>(i);
         }
     }
