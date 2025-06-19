@@ -185,7 +185,10 @@ void ITcpConnection::startReadData()
 {
     auto resolver = ITcpManage::instance().createResolver(*this, m_resolverFactoryId);
     m_addResolverCount ++;
-    m_resolvers.push_back(resolver);
+    {
+        std::lock_guard lock(m_mutex);
+        m_resolvers.push_back(resolver);
+    }
     resolver->startRead();
 }
 

@@ -1,23 +1,25 @@
 ﻿#include "ITcpConnectionData.h"
 #include "core/config/IProfileImport.h"
-#include "core/unit/IFixedArrayMemoryPoolUnit.h"
+//#include "core/unit/IFixedArrayMemoryPoolUnit.h"
 #include "http/IHttpConstant.h"
 
 $PackageWebCoreBegin
 
-namespace detail
-{
-    static IFixedArrayMemoryPoolUnit<char, IHttp::HTTP_BASE_MESSAGE_SIZE> s_pool {};
-}
+//namespace detail
+//{
+//    static IFixedArrayMemoryPoolUnit<char, IHttp::HTTP_BASE_MESSAGE_SIZE> s_pool {};
+//}
 
 ITcpConnectionData::ITcpConnectionData()
-    : m_data(detail::s_pool.allocateArray())
+    //: m_data(detail::s_pool.allocateArray())
+    : m_data(new char[IHttp::HTTP_BASE_MESSAGE_SIZE])
 {
 }
 
 ITcpConnectionData::~ITcpConnectionData()
 {
-    detail::s_pool.deallocateArray(m_data);
+    delete[]m_data;
+    //detail::s_pool.deallocateArray(m_data);
 }
 
 IStringView ITcpConnectionData::getBufferView(std::size_t length)

@@ -32,8 +32,6 @@ public:
 private:
     std::vector<ITcpResolverFactoryWare*> m_resolverFactories;
     std::vector<ITcpSocketFilterWare*> m_ipFilterWare;
-//    std::mutex mutex;
-//    std::unordered_set<ITcpConnection*> m_connections;
 };
 
 $PackageWebCoreEnd

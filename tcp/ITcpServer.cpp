@@ -44,7 +44,7 @@ void ITcpServer::listen()
     m_acceptor->open(endpoint.protocol());
     m_acceptor->set_option(asio::ip::tcp::acceptor::reuse_address(true));
     m_acceptor->bind(endpoint);
-    m_acceptor->listen();
+    m_acceptor->listen(SOMAXCONN);
     doAccept();
 
     IContextManage::instance().addConfig(IJson(m_ip), "/runtime/tcp/ip");
