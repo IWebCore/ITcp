@@ -1,25 +1,16 @@
 ﻿#include "ITcpConnectionData.h"
 #include "core/config/IProfileImport.h"
-//#include "core/unit/IFixedArrayMemoryPoolUnit.h"
-#include "http/IHttpConstant.h"
 
 $PackageWebCoreBegin
 
-//namespace detail
-//{
-//    static IFixedArrayMemoryPoolUnit<char, IHttp::HTTP_BASE_MESSAGE_SIZE> s_pool {};
-//}
-
 ITcpConnectionData::ITcpConnectionData()
-    //: m_data(detail::s_pool.allocateArray())
-    : m_data(new char[IHttp::HTTP_BASE_MESSAGE_SIZE])
+    : m_data(new char[m_maxSize])
 {
 }
 
 ITcpConnectionData::~ITcpConnectionData()
 {
     delete[]m_data;
-    //detail::s_pool.deallocateArray(m_data);
 }
 
 IStringView ITcpConnectionData::getBufferView(std::size_t length)
@@ -44,7 +35,7 @@ IStringView ITcpConnectionData::readBy(std::size_t length)
 
 IStringView ITcpConnectionData::readLine()
 {
-    auto line = find(IHttp::NEW_LINE);
+    auto line = find(&"\r\n");
     IStringView view(m_data + m_parsedSize, line);
     m_parsedSize += line;
     return view;
@@ -52,7 +43,7 @@ IStringView ITcpConnectionData::readLine()
 
 IStringView ITcpConnectionData::readPartition()
 {
-    auto length = find(IHttp::NEW_PART);
+    auto length = find(&"\r\n\r\n");
     IStringView view(m_data + m_parsedSize, length);
     m_parsedSize += length;
     return view;

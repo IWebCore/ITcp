@@ -1,7 +1,6 @@
 ﻿#include "ITcpServer.h"
 #include "core/config/IProfileImport.h"
 #include "core/config/IContextManage.h"
-#include "http/IRequest.h"
 #include "tcp/ITcpAbort.h"
 #include "tcp/ITcpConnection.h"
 #include "tcp/ITcpManage.h"

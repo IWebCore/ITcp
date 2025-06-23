@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "core/util/IHeaderUtil.h"
-#include "http/IHttpConstant.h"
+#include "asio.hpp"
 
 $PackageWebCoreBegin
 
@@ -30,7 +30,7 @@ public:
     bool m_isConstBuffer{true};
 
 public:
-    static constexpr auto m_maxSize = IHttp::HTTP_BASE_MESSAGE_SIZE;
+    static constexpr auto m_maxSize = 1024*10;  // TODO:
     std::size_t m_readSize{};
     std::size_t m_parsedSize{};
 
