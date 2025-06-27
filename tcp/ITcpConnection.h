@@ -30,6 +30,9 @@ public:
     void doReadError(std::error_code);
     void doWriteError(std::error_code);
 
+public:
+    std::string remoteIp() const;
+
 private:
     void startReadData();
 
