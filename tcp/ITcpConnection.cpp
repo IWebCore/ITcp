@@ -184,7 +184,7 @@ void ITcpConnection::doWriteError(std::error_code error)
 std::string ITcpConnection::remoteIp() const
 {
     if(m_socket->m_isSsl){
-        return m_socket->m_ssocket->remote_endpoint().address().to_string();
+        return m_socket->m_ssocket->lowest_layer().remote_endpoint().address().to_string();
     }
     return m_socket->m_socket->remote_endpoint().address().to_string();
 }

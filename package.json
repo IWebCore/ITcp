@@ -5,9 +5,12 @@
     "summary":"wrapped asio tcp server",
     "author": "yuekeyuan",
     "license":"AGPL-3.0-only",
+    "keywords": ["asio", "tcp", "server", "wrapper", "ITcp", "IWebCore", "IWeb"],
     "dependencies": {
         "asio": "*",
         "ICore": "*"
     },
-    "autoScan" : false
+    "homepage": "https://github.com/IWebCore/ITcp",
+    "autoScan" : false,
+    "changelog":"init project"
 }
