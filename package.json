@@ -12,5 +12,7 @@
     },
     "homepage": "https://github.com/IWebCore/ITcp",
     "autoScan" : false,
-    "changelog":"init project"
+    "changelog":"init project",
+    "isGlobal": true,
+    "publisher": "yuekeyuan"
 }
