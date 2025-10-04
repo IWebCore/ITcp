@@ -47,7 +47,6 @@ public:
 
 private:
     std::mutex m_mutex;
-    std::atomic_bool m_error;
     std::atomic_int m_unWrittenCount{0};
     ITcpSocket* m_socket;
     std::list<ITcpResolver*> m_resolvers;

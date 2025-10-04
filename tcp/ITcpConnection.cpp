@@ -202,7 +202,7 @@ void ITcpConnection::startReadData()
 
 void ITcpConnection::doWriteImpl()
 {
-    m_socket->async_write(m_resolvers.front()->getOutput(), [&](std::error_code err, int){
+    m_socket->async_write(m_resolvers.front()->getOutput(), [&](std::error_code err, std::size_t){
         if(err){
             return doWriteError(err);
         }

@@ -46,7 +46,9 @@ protected:
 
 private:
     bool m_isSsl{false};
+#ifdef ENABLE_SSL
     asio::ssl::context* m_sslContext{};
+#endif
 };
 
 $PackageWebCoreEnd
