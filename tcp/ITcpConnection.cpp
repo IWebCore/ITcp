@@ -1,11 +1,8 @@
 ﻿#include "ITcpConnection.h"
-#include "core/application/IApplication.h"
-#include "core/application/IAsioContext.h"
-#include "core/util/IStringUtil.h"
 #include "tcp/ITcpSocket.h"
+#include "core/application/asio/IAsioContext.h"
 #include "tcp/ITcpResolver.h"
 #include "tcp/ITcpManage.h"
-#include <iostream>
 #include <functional>
 
 $PackageWebCoreBegin

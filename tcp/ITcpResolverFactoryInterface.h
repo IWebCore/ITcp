@@ -19,7 +19,7 @@ public:
 template<typename T, typename U, bool enabled>
 void ITcpResolverFactoryInterface<T, U, enabled>::$task()
 {
-    if (enabled){
+    if constexpr (enabled){
         ITcpManage::instance().registResolverFactory(&ISolo<T>());
     }
 }
