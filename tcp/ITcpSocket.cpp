@@ -28,7 +28,7 @@ ITcpSocket::~ITcpSocket()
 
 bool ITcpSocket::is_open() const
 {
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     if(m_isSsl){
         return m_ssocket->lowest_layer().is_open();
     }
@@ -38,7 +38,7 @@ bool ITcpSocket::is_open() const
 
 void ITcpSocket::close()
 {
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     if(m_isSsl){
         try{
             m_ssocket->shutdown();

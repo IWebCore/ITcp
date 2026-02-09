@@ -19,7 +19,7 @@ public:
 public:
     void listen();
 
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     void setSslContext(asio::ssl::context* context);
 #endif
 
@@ -30,7 +30,7 @@ private:
 private:
     void doAcceptTcp();
 
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     void doAcceptTcps();
 #endif
 
@@ -46,7 +46,7 @@ protected:
 
 private:
     bool m_isSsl{false};
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     asio::ssl::context* m_sslContext{};
 #endif
 };

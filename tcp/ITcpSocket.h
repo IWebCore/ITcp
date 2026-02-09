@@ -2,7 +2,7 @@
 
 #include "core/util/IHeaderUtil.h"
 
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
 #include <asio/ssl.hpp>
 #endif
 
@@ -13,7 +13,7 @@ class ITcpSocket
 public:
     using ISocket = asio::ip::tcp::socket;
 
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     using ISSocket = asio::ssl::stream<ISocket>;
 #else
     using ISSocket = ISocket;

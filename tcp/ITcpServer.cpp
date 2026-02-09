@@ -52,7 +52,7 @@ void ITcpServer::listen()
     qDebug() << "server started, listen at " << QString::fromStdString(m_ip) + ":" + QString::number(m_port);
 }
 
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
 void ITcpServer::setSslContext(asio::ssl::context *context)
 {
     m_isSsl = true;
@@ -75,7 +75,7 @@ void ITcpServer::loadResolverFactory()
 
 void ITcpServer::doAccept()
 {
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
     if(m_isSsl){
         return doAcceptTcps();
     }
@@ -96,7 +96,7 @@ void ITcpServer::doAcceptTcp()
     );
 }
 
-#ifdef ENABLE_SSL
+#ifdef IWEBCORE_ENABLE_SSL
 void ITcpServer::doAcceptTcps()
 {
     m_acceptor->async_accept([this](std::error_code ec, asio::ip::tcp::socket socket){
