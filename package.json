@@ -11,7 +11,7 @@
         "ICore": "*"
     },
     "homepage": "https://github.com/IWebCore/ITcp",
-    "autoScan" : false,
+    "autoScan" : true,
     "changelog":"init project",
     "isGlobal": true,
     "publisher": "yuekeyuan"
